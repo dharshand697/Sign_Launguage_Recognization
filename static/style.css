@@ -1,0 +1,278 @@
+
+/* vision-style.css — Ultra-Glass Minimal (Apple Vision Pro inspiration) */
+:root{
+  --bg-1: #07070a;
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.06);
+  --accent: #66d9ff;
+  --muted: rgba(230,240,255,0.6);
+  --glass-strong: rgba(255,255,255,0.055);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+
+  /* ⭐ FULL SCREEN WIDTH */
+  --container-width: 1600px;
+
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Base layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: radial-gradient(1200px 600px at 12% 20%, rgba(102,217,255,0.06), transparent),
+             var(--bg-1);
+  color: #eaf6ff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+/* MAIN GRID — FULL WIDTH */
+.app {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 240px 1fr 240px;
+  gap: 36px;
+
+  max-width: var(--container-width);
+  width: 100%;
+  margin: 32px auto;
+  padding: 0 40px;
+
+  transform: scale(1.06); /* Slight UI zoom */
+  align-items: start;
+}
+
+/* Glass base */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  padding: 18px;
+  box-shadow: 0 8px 40px rgba(8,12,20,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(18px) saturate(120%);
+}
+
+/* LEFT PANEL */
+.left-panel .brand { 
+  display:flex; 
+  gap:12px; 
+  align-items:center; 
+}
+
+.logo {
+  width:48px;
+  height:48px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:var(--bg-1);
+  background: linear-gradient(180deg, #ffffff, #dff7ff);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.brand-text .name { 
+  font-weight:700; 
+  color:#f6fbff; 
+  font-size:16px;
+}
+
+.brand-text .sub { 
+  font-size:13px; 
+  color:var(--muted); 
+  margin-top:2px; 
+}
+
+/* CENTER PANEL */
+.center-panel { 
+  display:flex; 
+  flex-direction:column; 
+  gap:22px; 
+}
+
+/* HERO PANEL */
+.hero {
+  padding: 32px;
+  border-radius: 22px;
+  min-height: 760px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #f8fcff;
+}
+
+.hero-sub { 
+  margin:0; 
+  color:var(--muted); 
+  font-size:16px;
+}
+
+/* VIDEO FRAME — HD SIZE */
+.video-wrap { 
+  display:flex; 
+  justify-content:center; 
+}
+
+.video-frame {
+  width: 960px;
+  height: 540px;
+  max-width: 100%;
+
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.03);
+  overflow:hidden;
+  position:relative;
+  box-shadow: 0 18px 60px rgba(4,8,12,0.6);
+}
+
+/* VIDEO */
+#video, #overlay {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* CONTROLS */
+.controls { 
+  display:flex; 
+  align-items:center; 
+  gap:18px; 
+  margin-top:10px; 
+  flex-wrap:wrap; 
+}
+
+/* BUTTONS */
+.btn {
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-size: 16px;
+}
+
+/* START BUTTON */
+.btn.primary {
+  background: rgba(102, 217, 255, 0.25);
+  color: #00161b;
+  border: 1px solid rgba(102,217,255,0.45);
+  box-shadow: 0 4px 14px rgba(102,217,255,0.28);
+  backdrop-filter: blur(8px);
+}
+.btn.primary:hover {
+  background: rgba(102, 217, 255, 0.35);
+  box-shadow: 0 6px 20px rgba(102,217,255,0.42);
+  transform: translateY(-2px);
+}
+
+/* STOP BUTTON */
+.btn.subtle {
+  background: rgba(255,255,255,0.12);
+  color: #e9f4ff;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.45);
+}
+.btn.subtle:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+
+/* STATUS BOX */
+.status { 
+  margin-left:auto; 
+  min-width:240px; 
+  background: rgba(255,255,255,0.02);
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+.stat-row { 
+  display:flex; 
+  justify-content:space-between; 
+  gap:12px; 
+  font-size:16px; 
+  color:var(--muted); 
+}
+.stat-row strong { 
+  color: var(--accent); 
+  font-weight:800; 
+}
+
+/* INFO */
+.info { 
+  padding: 20px; 
+  border-radius: 14px; 
+  font-size: 15px; 
+  color: var(--muted); 
+}
+
+/* RIGHT PANEL */
+.right-panel .metrics {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  padding: 26px;
+  border-radius: 14px;
+  transform: scale(1.15);
+}
+
+.metric {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 14px;
+  background: rgba(255,255,255,0.01);
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.02);
+}
+
+.m-title { 
+  font-size:14px; 
+  color:var(--muted); 
+}
+.m-value { 
+  font-weight:800; 
+  color:#eaffff; 
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .app { 
+    grid-template-columns: 1fr; 
+    padding: 24px; 
+    margin: 28px auto; 
+  }
+  .video-frame { 
+    width: 100%; 
+    height: 300px; 
+  }
+  .status { 
+    margin-left: 0; 
+  }
+}
+
+/* Ensure buttons are always clickable */
+#start, #stop {
+  position: relative;
+  z-index: 9999;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Sign Language Translator</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Smooth fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<canvas id="bgCanvas"></canvas>
+
+<div class="app">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel glass">
+        <div class="brand small">
+            <div class="logo">SL</div>
+            <div class="brand-text">
+                <div class="name">Sign Language AI</div>
+                <div class="sub">Gesture → Speech</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CENTER PANEL -->
+    <div class="center-panel">
+
+        <div class="hero glass">
+
+            <div class="hero-head">
+                <h1 class="hero-title">Real-Time Sign Language Translator</h1>
+                <p class="hero-sub">Recognize gestures → Convert to speech</p>
+            </div>
+
+            <div class="video-wrap">
+                <div class="video-frame">
+                    <!-- FIXED ID -->
+                    <video id="webcam" autoplay muted playsinline></video>
+                </div>
+            </div>
+
+            <div class="controls">
+                <!-- FIXED IDs -->
+                <button id="startBtn" class="btn primary">Start</button>
+                <button id="stopBtn" class="btn subtle">Stop</button>
+
+                <div class="status glass">
+                    <div class="stat-row">
+                        <span>Prediction:</span>
+                        <strong id="prediction">—</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Confidence:</span>
+                        <strong id="confidence">—</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>FPS:</span>
+                        <strong id="fps">0</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="info glass">
+            This prototype uses MediaPipe + LSTM Neural Networks to interpret hand gestures, 
+            recognize sign language sequences, and convert predictions to real-time speech.
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel glass">
+        <div class="metrics">
+            <div class="metric">
+                <span class="m-title">Model Loaded</span>
+                <span class="m-value">Yes</span>
+            </div>
+            <div class="metric">
+                <span class="m-title">Hands Detected</span>
+                <span class="m-value">Auto</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Background particle system -->
+<script src="/static/particles.js"></script>
+
+<!-- Main JS logic -->
+<script src="/static/main.js"></script>
+
+</body>
+</html>
